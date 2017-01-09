@@ -11,7 +11,9 @@ There are many third party logging api
 3. Apache Commons Logging
 4. LogBack 
 
-### Advantage ###
+
+### Java Logger ###
+java.util.logging.Logger is the class used to log application messages in java logging API.
 
 ### Warmup ###
 
