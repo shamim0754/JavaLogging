@@ -31,6 +31,109 @@ Set logging level by following code
 
 The logs will be generated for all the levels equal to or greater than the logger level so it generates FINE,FINER,FINEST levels
 
+### Logging Method ###
+
+There are two different styles of logging methods
+
+`void warning(String sourceClass, String sourceMethod, String msg);`
+
+`void warning(String msg);`
+
+### Logging Handlers ###
+
+The handler receives the log message from the logger and exports it to a certain target.
+
+Java SE provides the following Handlers:
+
+1. StreamHandler: A simple handler for writing formatted records to an OutputStream.
+2. ConsoleHandler: A simple handler for writing formatted records to System.err
+3. FileHandler: A handler that writes formatted log records either to a single file, or to a set of rotating log files.
+4. SocketHandler: A handler that writes formatted log records to remote TCP ports.
+5. MemoryHandler: A handler that buffers log records in memory.
+
+### Custom Handlers ###
+To create our own Handler class, we need to extend java.util.logging.Handler class or any of it’s subclasses like StreamHandler, SocketHandler 
+
+```java
+import java.util.logging.LogRecord;
+import java.util.logging.StreamHandler;
+
+public class MyHandler extends StreamHandler {
+
+    @Override
+    public void publish(LogRecord record) {
+        //add own logic to publish
+        super.publish(record);
+    }
+
+
+    @Override
+    public void flush() {
+        super.flush();
+    }
+
+
+    @Override
+    public void close() throws SecurityException {
+        super.close();
+    }
+
+}
+```
+
+### Formatters ###
+Formatters are used to format the log messages. There are two available formatters in java logging API.
+
+1. SimpleFormatter: This formatter generates text messages with basic information. ConsoleHandler uses this formatter class to print log messages to console.
+2. XMLFormatter: This formatter generates XML message for the log, FileHandler uses XMLFormatter as a default formatter.
+
+### Custom Formatters ###
+
+We can create our own custom Formatter class by extending java.util.logging.Formatter class and attach it to any of the handlers
+
+```java
+import java.util.Date;
+import java.util.logging.Formatter;
+import java.util.logging.LogRecord;
+
+public class MyFormatter extends Formatter {
+
+    @Override
+    public String format(LogRecord record) {
+        return record.getThreadID()+"::"+record.getSourceClassName()+"::"
+                +record.getSourceMethodName()+"::"
+                +new Date(record.getMillis())+"::"
+                +record.getMessage()+"\n";
+    }
+
+}
+```
+### Log Manager ###
+
+java.util.logging.LogManager is the class that reads the logging configuration, create and maintains the logger instances
+
+```java
+LogManager.getLogManager().readConfiguration(new FileInputStream("mylogging.properties"));
+```
+myLogging.properties
+
+```txt
+handlers= java.util.logging.ConsoleHandler
+
+.level= FINE
+
+# default file output is in user's home directory.
+java.util.logging.FileHandler.pattern = %h/java%u.log
+java.util.logging.FileHandler.limit = 50000
+java.util.logging.FileHandler.count = 1
+java.util.logging.FileHandler.formatter = java.util.logging.XMLFormatter
+
+# Limit the message that are printed on the console to INFO and above.
+java.util.logging.ConsoleHandler.level = INFO
+java.util.logging.ConsoleHandler.formatter = java.util.logging.SimpleFormatter
+
+com.journaldev.files = SEVERE
+```
 
 ### Warmup ###
 
