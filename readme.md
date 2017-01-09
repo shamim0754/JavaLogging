@@ -2,7 +2,7 @@
 Logging is the process of writing log messages during the execution of a program to a central place that offers quick debugging, easy maintenance.
 But it have drawbacks also e.g It can slow down an application
 
-Java Logging API was introduced in 1.4 in the java.util.logging package
+Java Logging API was introduced in 1.4 in the `java.util.logging` package
 
 There are many third party logging api
 1. Log4J
