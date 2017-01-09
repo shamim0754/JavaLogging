@@ -27,7 +27,10 @@ SEVERE (highest) -> WARNING->INFO->CONFIG->FINE->FINER->FINEST
 There are two other logging levels, `OFF` that will turn off `all` logging and ALL that will log all the messages.
 
 Set logging level by following code
-`logger.setLevel(Level.FINE);` The logs will be generated for all the levels equal to or greater than the logger level so it generates FINE,FINER,FINEST levels
+`logger.setLevel(Level.FINE);` 
+
+The logs will be generated for all the levels equal to or greater than the logger level so it generates FINE,FINER,FINEST levels
+
 
 ### Warmup ###
 
