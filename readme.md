@@ -39,6 +39,31 @@ There are two different styles of logging methods
 
 `void warning(String msg);`
 
+others methods : 
+
+entering(String sourceClass, String sourceMethod);
+entering(String sourceClass, String sourceMethod, Object param1);
+entering(String sourceClass, String sourceMethod, Object[] params);
+
+exiting (String sourceClass, String sourceMethod);
+exiting (String sourceClass, String sourceMethod, Object result);
+
+fine    (String message);
+finer   (String message);
+finest  (String message);
+
+config  (String message);
+info    (String message);
+warning (String message);
+severe  (String message);
+
+There are one common method to log any message
+
+log  (Level level, String message);
+logp (Level level, String sourceClass, String sourceMethod, String msg);
+logrb(Level level, String sourceClass, String sourceMethod,
+    String bundle, String msg);
+    
 ### Logging Handlers ###
 
 The handler receives the log message from the logger and exports it to a certain target.
