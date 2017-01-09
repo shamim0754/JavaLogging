@@ -4,7 +4,7 @@ But it have drawbacks also e.g It can slow down an application
 
 Java Logging API was introduced in 1.4 in the `java.util.logging` package
 
-There are many third party logging api
+There are many third party popular logging api
 
 1. Log4J
 2. SLF4J
@@ -13,7 +13,12 @@ There are many third party logging api
 
 
 ### Java Logger ###
-java.util.logging.Logger is the class used to log application messages in java logging API.
+java.util.logging.Logger is the class used to log application messages in java logging API. Syntax to create logger
+
+```java
+private final static Logger LOGGER = Logger.getLogger(MyLogger.class.getName());
+```
+
 
 ### Warmup ###
 
