@@ -19,6 +19,15 @@ java.util.logging.Logger is the class used to log application messages in java l
 private final static Logger LOGGER = Logger.getLogger(MyLogger.class.getName());
 ```
 
+### Logging Levels ###
+There are seven levels of logging in java
+
+SEVERE (highest) -> WARNING->INFO->CONFIG->FINE->FINER->FINEST
+
+There are two other logging levels, `OFF` that will turn off `all` logging and ALL that will log all the messages.
+
+Set logging level by following code
+`logger.setLevel(Level.FINE);` The logs will be generated for all the levels equal to or greater than the logger level so it generates FINE,FINER,FINEST levels
 
 ### Warmup ###
 
