@@ -105,11 +105,14 @@ logrb(Level level, String sourceClass, String sourceMethod,
 Update App.java
 
 ```java
-logger.setLevel(Level.FINE);
-logger.warning("Hello World log message");
+private static Logger logger = Logger.getLogger(App.class.getName());
+public static void main( String[] args ){
+	logger.setLevel(Level.FINE);
+	logger.warning("Hello World log message");
 
-//recommended method to use
-logger.log(Level.WARNING,"Hello World log message");
+	//recommended method to use
+	logger.log(Level.WARNING,"Hello World log message");
+}
 ```
 
 ### Logging Handlers ###
