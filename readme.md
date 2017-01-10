@@ -68,7 +68,7 @@ logrb(Level level, String sourceClass, String sourceMethod,
 
 1. create maven java project by following command
 
-	`mvn archetype:generate -DgroupId=com.javaaround -DartifactId=Hibernate -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
+	`mvn archetype:generate -DgroupId=com.javaaround -DartifactId=JavaLogging -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
 2. Update AppTest.java
 	```java
@@ -100,9 +100,10 @@ logrb(Level level, String sourceClass, String sourceMethod,
 
 	`mvn clean package`
 
-### Hello Logging ###	
+###  Hello Logging  ###	
 
 Update App.java
+
 ```java
 logger.setLevel(Level.FINE);
 logger.warning("Hello World log message");
@@ -110,7 +111,7 @@ logger.warning("Hello World log message");
 //recommended method to use
 logger.log(Level.WARNING,"Hello World log message");
 ```
-    
+
 ### Logging Handlers ###
 
 The handler receives the log message from the logger and exports it to a certain target.
