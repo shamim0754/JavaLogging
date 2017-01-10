@@ -10,13 +10,17 @@ public class App
     public static void main( String[] args )
     {
         
+        try{
         logger.setLevel(Level.FINE);
-
-        ConsoleHandler handler = new ConsoleHandler();
-		handler.setFormatter(new MyFormatter());
+        //1024 * 1024 = 1kb
+        FileHandler handler = new FileHandler("myapp-log.%u.%g.txt",1024 * 1024);
+		//handler.setFormatter(new MyFormatter());
 
         logger.addHandler(handler);
         logger.log(Level.WARNING,"Simple log message");
+    	}catch(Exception e){
+
+    	}
 
     }
 }

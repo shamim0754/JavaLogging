@@ -217,6 +217,33 @@ Run app by following command
 
 	`mvn clean package`
 
+### FileHander ###
+The FileHandler writes all messages to file.By default the FileHandler uses the XMLFormatter 
+
+```java
+FileHandler handler = new FileHandler();
+pattern=file name pattern
+FileHandler handler = new FileHandler(String pattern);
+append = whether the FileHandler should append to any existing files or not.
+FileHandler handler = new FileHandler(String pattern, boolean append);
+//limit = file size .if size reach new file create automatically
+//count = number of file create
+FileHandler handler = new FileHandler(String pattern, int limit, int count);
+FileHandler handler = new FileHandler(String pattern, int limit, int count,
+    boolean append);
+```
+### File Name Pattern ###
+
+Pattern          |  Description
+----------------- | -------------
+
+/	| The file name separator of the system. Typically either \ or / .
+%t	 | The temp directory of the system.
+%h	| The user home directory of the system.
+%g	| The generation number that distinguishes the rotated log files from each other.
+%u	| A unique number to avoid naming conflicts.
+%%	| A single percent sign, in case you want to use that in your file name.
+
 ### Log Manager ###
 
 java.util.logging.LogManager is the class that reads the logging configuration, create and maintains the logger instances

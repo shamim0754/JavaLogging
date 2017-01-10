@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-01-10T12:45:37</date>
+  <millis>1484030737804</millis>
+  <sequence>0</sequence>
+  <logger>com.javaaround.App</logger>
+  <level>WARNING</level>
+  <class>com.javaaround.App</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Simple log message</message>
+</record>
+</log>
