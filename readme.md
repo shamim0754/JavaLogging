@@ -189,6 +189,8 @@ Run app by following command
 
 We can create our own custom Formatter class by extending java.util.logging.Formatter class and attach it to any of the handlers
 
+Create MyFormatter.java
+
 ```java
 import java.util.Date;
 import java.util.logging.Formatter;
@@ -206,6 +208,15 @@ public class MyFormatter extends Formatter {
 
 }
 ```
+
+update App.java
+
+`new MyFormatter()`
+
+Run app by following command
+
+	`mvn clean package`
+
 ### Log Manager ###
 
 java.util.logging.LogManager is the class that reads the logging configuration, create and maintains the logger instances

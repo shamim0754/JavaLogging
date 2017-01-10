@@ -13,7 +13,7 @@ public class App
         logger.setLevel(Level.FINE);
 
         ConsoleHandler handler = new ConsoleHandler();
-		handler.setFormatter(new SimpleFormatter());
+		handler.setFormatter(new MyFormatter());
 
         logger.addHandler(handler);
         logger.log(Level.WARNING,"Simple log message");
