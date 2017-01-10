@@ -222,9 +222,9 @@ The FileHandler writes all messages to file.By default the FileHandler uses the 
 
 ```java
 FileHandler handler = new FileHandler();
-pattern=file name pattern
+//pattern=file name pattern
 FileHandler handler = new FileHandler(String pattern);
-append = whether the FileHandler should append to any existing files or not.
+//append = whether the FileHandler should append to any existing files or not.
 FileHandler handler = new FileHandler(String pattern, boolean append);
 //limit = file size .if size reach new file create automatically
 //count = number of file create
@@ -236,9 +236,8 @@ FileHandler handler = new FileHandler(String pattern, int limit, int count,
 
 Pattern          |  Description
 ----------------- | -------------
-
 /	| The file name separator of the system. Typically either \ or / .
-%t	 | The temp directory of the system.
+%t	| The temp directory of the system.
 %h	| The user home directory of the system.
 %g	| The generation number that distinguishes the rotated log files from each other.
 %u	| A unique number to avoid naming conflicts.
