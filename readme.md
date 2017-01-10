@@ -59,10 +59,10 @@ others methods :
 
 There are one common method to log any message
 
-log  (Level level, String message);
-logp (Level level, String sourceClass, String sourceMethod, String msg);
-logrb(Level level, String sourceClass, String sourceMethod,
-    String bundle, String msg);
+`log  (Level level, String message);`
+`logp (Level level, String sourceClass, String sourceMethod, String msg);`
+`logrb(Level level, String sourceClass, String sourceMethod,
+    String bundle, String msg);`
 
 ### Warmup ###
 
