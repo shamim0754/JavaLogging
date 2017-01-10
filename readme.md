@@ -163,6 +163,28 @@ Formatters are used to format the log messages. There are two available formatte
 1. SimpleFormatter: This formatter generates text messages with basic information. ConsoleHandler uses this formatter class to print log messages to console.
 2. XMLFormatter: This formatter generates XML message for the log, FileHandler uses XMLFormatter as a default formatter.
 
+Update App.java
+
+```java
+logger.setLevel(Level.FINE);
+ConsoleHandler handler = new ConsoleHandler();
+handler.setFormatter(new SimpleFormatter());
+
+logger.addHandler(handler);
+```
+
+Run app by following command
+
+	`mvn clean package`
+
+For XMLFormatter update App.java
+
+`new XMLFormatter()`
+
+Run app by following command
+
+	`mvn clean package`
+
 ### Custom Formatters ###
 
 We can create our own custom Formatter class by extending java.util.logging.Formatter class and attach it to any of the handlers

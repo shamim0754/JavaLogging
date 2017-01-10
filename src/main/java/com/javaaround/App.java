@@ -9,11 +9,14 @@ public class App
 	private static Logger logger = Logger.getLogger(App.class.getName());
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        
         logger.setLevel(Level.FINE);
-        logger.warning("Simple log message");
 
-        //recommended method to use
+        ConsoleHandler handler = new ConsoleHandler();
+		handler.setFormatter(new SimpleFormatter());
+
+        logger.addHandler(handler);
         logger.log(Level.WARNING,"Simple log message");
+
     }
 }
