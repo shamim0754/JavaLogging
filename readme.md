@@ -244,6 +244,38 @@ Pattern          |  Description
 %u	| A unique number to avoid naming conflicts.
 %%	| A single percent sign, in case you want to use that in your file name.
 
+Update App.java
+```java
+ try{
+	logger.setLevel(Level.FINE);
+	//1024 * 1024 = 1kb
+	FileHandler handler = new FileHandler("myapp-log.%u.%g.txt",1024 * 1024);
+
+	logger.addHandler(handler);
+	logger.log(Level.WARNING,"Simple log message");
+}catch(Exception e){
+
+}
+```
+myapp-log.0.0.txt create automatically
+```txt
+?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-01-10T12:45:37</date>
+  <millis>1484030737804</millis>
+  <sequence>0</sequence>
+  <logger>com.javaaround.App</logger>
+  <level>WARNING</level>
+  <class>com.javaaround.App</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Simple log message</message>
+</record>
+</log>
+
+```
 ### Log Manager ###
 
 java.util.logging.LogManager is the class that reads the logging configuration, create and maintains the logger instances
