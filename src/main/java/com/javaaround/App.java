@@ -12,5 +12,8 @@ public class App
         System.out.println( "Hello World!" );
         logger.setLevel(Level.FINE);
         logger.warning("Simple log message");
+
+        //recommended method to use
+        logger.log(Level.WARNING,"Simple log message");
     }
 }

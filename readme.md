@@ -33,7 +33,7 @@ The logs will be generated for all the levels equal to or greater than the logge
 
 ### Logging Method ###
 
-There are two different styles of logging methods
+There are two different styles of logging methods like warning methods
 
 `void warning(String sourceClass, String sourceMethod, String msg);`
 
@@ -195,3 +195,14 @@ com.journaldev.files = SEVERE
 4. Run app by following command
 
 	`mvn clean package`
+
+### Hello Logging ###	
+
+Update App.java
+```java
+logger.setLevel(Level.FINE);
+logger.warning("Hello World log message");
+
+//recommended method to use
+logger.log(Level.WARNING,"Hello World log message");
+```
