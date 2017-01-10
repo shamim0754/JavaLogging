@@ -2,14 +2,15 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2017-01-10T12:45:37</date>
-  <millis>1484030737804</millis>
+  <date>2017-01-10T14:48:44</date>
+  <millis>1484038124539</millis>
   <sequence>0</sequence>
   <logger>com.javaaround.App</logger>
   <level>WARNING</level>
   <class>com.javaaround.App</class>
   <method>main</method>
   <thread>1</thread>
-  <message>Simple log message</message>
+  <message>age=32</message>
+  <param>com.javaaround.Person@20fa23c1</param>
 </record>
 </log>

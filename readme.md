@@ -41,21 +41,21 @@ There are two different styles of logging methods like warning methods
 
 others methods : 
 
-entering(String sourceClass, String sourceMethod);
-entering(String sourceClass, String sourceMethod, Object param1);
-entering(String sourceClass, String sourceMethod, Object[] params);
+`entering(String sourceClass, String sourceMethod);`
+`entering(String sourceClass, String sourceMethod, Object param1);`
+`entering(String sourceClass, String sourceMethod, Object[] params);`
 
-exiting (String sourceClass, String sourceMethod);
-exiting (String sourceClass, String sourceMethod, Object result);
+`exiting (String sourceClass, String sourceMethod);`
+`exiting (String sourceClass, String sourceMethod, Object result);`
 
-fine    (String message);
-finer   (String message);
-finest  (String message);
+`fine    (String message);`
+`finer   (String message);`
+`finest  (String message);`
 
-config  (String message);
-info    (String message);
-warning (String message);
-severe  (String message);
+`config  (String message);`
+`info    (String message);`
+`warning (String message);`
+`severe  (String message);`
 
 There are one common method to log any message
 
@@ -275,6 +275,85 @@ myapp-log.0.0.txt create automatically
 </log>
 
 ```
+
+### Filter Log ###
+
+A Filter can filter out log messages, meaning decide if the message gets logged or not.
+
+Following example  When the LogRecord level is equals to Level.SEVERE then log display
+
+Update App.java
+```java
+FileHandler handler = new FileHandler("myapp-log.%u.%g.txt");
+handler.setFilter(new Filter() {
+    public boolean isLoggable(LogRecord record) {
+        return record.getLevel().equals(Level.SEVERE);
+    }
+});
+logger.addHandler(handler); 
+logger.log(Level.WARNING,"Simple log message");
+logger.log(Level.INFO,"Information message");
+logger.log(Level.SEVERE,"Severe message");
+```
+Another Example
+
+create Person.java
+
+```java
+package com.javaaround;
+import java.util.logging.Filter;
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
+import java.util.logging.Logger;
+
+class Person {
+  private String name = null;
+  private int age;
+
+  public Person(String name, int age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setAge(int age) {
+    this.age = age;
+  }
+
+  public int getAge() {
+    return age;
+  }
+}
+
+```
+
+Update App.java
+```java
+logger.setLevel(Level.FINE);
+//1024 * 1024 = 1kb
+FileHandler handler = new FileHandler("myapp-log.%u.%g.txt");
+handler.setFilter(new Filter() {
+    @Override
+    public boolean isLoggable(LogRecord record) {
+        Object[] objs = record.getParameters();
+        Person person = (Person) objs[0];
+        return person != null && person.getAge() > 30 ? true : false; 
+    }
+});
+logger.addHandler(handler); 
+Person p1 = new Person("Shamim", 32);
+Person p2 = new Person("Alamin", 29);
+logger.log(Level.WARNING,"age=" + p1.getAge(),p1 );
+logger.log(Level.INFO,"age=" + p2.getAge(),p2);
+```
+
 ### Log Manager ###
 
 java.util.logging.LogManager is the class that reads the logging configuration, create and maintains the logger instances
