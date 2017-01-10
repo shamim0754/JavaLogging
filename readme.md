@@ -60,7 +60,9 @@ others methods :
 There are one common method to log any message
 
 `log  (Level level, String message);`
+
 `logp (Level level, String sourceClass, String sourceMethod, String msg);`
+
 `logrb(Level level, String sourceClass, String sourceMethod,
     String bundle, String msg);`
 
@@ -358,10 +360,9 @@ logger.log(Level.INFO,"age=" + p2.getAge(),p2);
 
 java.util.logging.LogManager is the class that reads the logging configuration, create and maintains the logger instances
 
-```java
-LogManager.getLogManager().readConfiguration(new FileInputStream("mylogging.properties"));
-```
-myLogging.properties
+
+create Logger.properties
+
 
 ```txt
 handlers= java.util.logging.ConsoleHandler
@@ -379,5 +380,18 @@ java.util.logging.ConsoleHandler.level = INFO
 java.util.logging.ConsoleHandler.formatter = java.util.logging.SimpleFormatter
 
 com.journaldev.files = SEVERE
+```
+
+Update App.java
+
+```java
+try{
+    LogManager.getLogManager().readConfiguration(new FileInputStream("logger.properties"));
+    logger.log(Level.WARNING,"log manager" );
+    logger.log(Level.INFO,"looger messeage");
+
+}catch(Exception e){
+
+}
 ```
 
