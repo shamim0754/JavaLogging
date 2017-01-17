@@ -13,7 +13,10 @@ There are many third party popular logging api
 
 
 ### Java Logger ###
-java.util.logging.Logger is the class used to log application messages in java logging API. Syntax to create logger
+java.util.logging.Logger is the class used to log application messages in java logging API. 
+![Image of Nested](images/overview.png) 
+
+Syntax to create logger
 
 ```java
 private final static Logger LOGGER = Logger.getLogger(MyLogger.class.getName());
@@ -379,7 +382,7 @@ java.util.logging.FileHandler.formatter = java.util.logging.XMLFormatter
 java.util.logging.ConsoleHandler.level = INFO
 java.util.logging.ConsoleHandler.formatter = java.util.logging.SimpleFormatter
 
-com.journaldev.files = SEVERE
+com.javaaround = SEVERE
 ```
 
 Update App.java
